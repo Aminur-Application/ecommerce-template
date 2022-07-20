@@ -23,7 +23,6 @@ export default async function handler(req, res) {
           req.body.map((item) => {
             const img = item.image[0].asset._ref;
             const newImage = img.replace('image-', 'https://cdn.sanity.io/images/lrkvp375/production/').replace('-webp', '.webp')
-            console.log(newImage)
             return {
               price_data:{
                 currency: 'gbp',

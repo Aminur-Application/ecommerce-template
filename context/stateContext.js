@@ -60,7 +60,7 @@ export const StateContext = ({children}) => {
     foundProduct = cartItems.find((item) => item._id === id)
     index = cartItems.findIndex((product) => product._id === id)
     let newCartItems = cartItems.filter((item, i ) => item._id !== id)
-    console.log("filtered items" ,newCartItems, index)
+   
     if(value === 'inc'){
       setCartItems([...newCartItems.slice(0, index), {...foundProduct, quantity: foundProduct.quantity + 1}, ...newCartItems.slice(index)])
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
