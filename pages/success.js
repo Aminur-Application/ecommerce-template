@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { useStateContext } from '../context/stateContext.js'
 import { runFireworks } from '../lib/utils.js';
 
-const success = () => {
+const Success = () => {
   const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const success = () => {
     setTotalQuantities(0);
     runFireworks();
   }, [])
-  const [order, setOrder] = useState(null);
+  
   return (
     <div className='success-wrapper'>
       <div className='success'>
@@ -40,4 +40,4 @@ const success = () => {
   )
 }
 
-export default success
+export default Success
