@@ -2,11 +2,12 @@ import React from 'react'
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
 
-const Products = ({product: { image, name, slug, price }}) => {
+const Products = ({product: { image, name, slug, price, tags }}) => {
+  const returnTags = tags?.map((tag) => tag.label)
   return (
-    <div>
-      <Link href={`/product/${slug.current}`}>
-        <div className='product-card'>
+    <div data-tag={returnTags}>
+        <Link href={`/product/${slug.current}`}>
+        <div className='product-card' >
           <img
             src={urlFor(image && image[0])}
             width={250}
@@ -16,7 +17,6 @@ const Products = ({product: { image, name, slug, price }}) => {
             <p className='product-name'>{name}</p>
             <p className='product-price'>${price}</p>
         </div>
-      
       </Link>
     </div>
   )
