@@ -1,28 +1,26 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Product, FooterBanner, HeroBanner} from '../components';
 import { client } from '../lib/client';
+
+import dynamic from "next/dynamic"
+
+const ClientComponent = dynamic(() => import("../plugins/isotope"), {
+  // Do not import in server side
+  ssr: false,
+  suspense: false
+  
+})
+
 
 const Home = ({ products, bannerData}) => {
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
-       
-
       <div className = "products-heading">
         <h2> Best selling Products </h2>
         <p> Speakers of many variations</p>
       </div>
-
-      <div className = "products-container">
-        {products?.map((product) => <Product key={product._id} product={product} />)}
-      </div>
-
-      <div className='products-heading'>
-        <h2> All Products </h2>
-        <p> browse and filter the collection </p>
-      </div>
-
-      <FooterBanner footerBanner = { bannerData && bannerData[0]} />
+      <ClientComponent products={products}/>
     </>
   )
 }
