@@ -5,7 +5,7 @@ import { urlFor } from '../lib/client';
 const Products = ({product: { image, name, slug, price, tags }}) => {
   const returnTags = tags?.map((tag) => tag.label)
   return (
-    <div data-tag={returnTags}>
+    <div className={`filter-item ${returnTags}`}>
         <Link href={`/product/${slug.current}`}>
         <div className='product-card' >
           <img
