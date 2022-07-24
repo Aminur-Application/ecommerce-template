@@ -61,9 +61,11 @@ export default {
     type: 'tags',
     options: {
       predefinedTags:[
-        {label: "Facial Cream", value: 'facial-cream'},
-        {label: "Shampoo", value: 'shampoo'},
-        {label: "Body moisturiser", value: 'body-moisturiser'}
+        {label: "Headphones", value: 'headphones'},
+        {label: "Earphones", value: 'earphones'},
+        {label: "Smartphones", value: 'smartphones'},
+        {label: "Smartwatches", value: 'smartwatches'},
+        {label: "Speakers", value: 'speakers'}
       ]
     }
   }
