@@ -1,39 +1,38 @@
 import React from "react"
 import Isotope from "isotope-layout"
-import react from "react"
+import Filterizr from 'filterizr'
 import Product from "../components/Products"
 
 
 const ClientComponent = ({products}) => {
-  const [isotope, setIsotope] = react.useState(null)
+  const [isotope, setIsotope] = React.useState(null)
   const [filterKey, setFilterKey] = React.useState('*')
+ 
+
   React.useEffect(() => {
     setIsotope(
-      new Isotope('.products-container')
+      new Isotope('.isotope', {itemSelector: '.grid-item', layoutMode: 'masonry', masonry: {columnWidth: 1, gutter: 40 }})
     )
   },[])
-  
-  const handleFilterKeyChange = (key) => {
+
+  React.useEffect(() => {
     if (isotope) {
       // sanity check
       filterKey === '*'
         ? isotope.arrange({ filter: `*` })
         : isotope.arrange({ filter: `.${filterKey}` });
-      setFilterKey(key)
     }
-    
-  }
-  console.log(isotope)
+  }, [isotope, filterKey]);
+  
   return (
     <>
-      <ul>
-        <li onClick={() => handleFilterKeyChange('*')}>Show Both</li>
-        <li onClick={() => handleFilterKeyChange('Shampoo')}>Show Veges</li>
-        <li onClick={() => handleFilterKeyChange('fruit')}>Show Fruits</li>
-      </ul>
-      <hr />
+      <div className="filter-btn-container">
+        <button type="button" className="filter-btn" onClick={() => setFilterKey('*')}>Show Both</button>
+        <button type="button" className="filter-btn" onClick={() => setFilterKey('Shampoo')}>Show Veges</button>
+        <button type="button" className="filter-btn" onClick={() => setFilterKey('fruit')}>Show Fruits</button>
+      </div>
 
-      <div className = "products-container">
+      <div className = "isotope">
           {products?.map((product) => <Product key={product._id} product={product} />)}
       </div>
     </>
