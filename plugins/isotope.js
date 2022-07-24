@@ -23,28 +23,33 @@ const ClientComponent = ({products}) => {
   }, [isotope, filterKey, isActive]);
   
   const toggleClass = (index) => {
-    setActive((isActive) => (isActive === index ? 1 : index));
+    setActive((isActive) => (isActive === index ? 0 : index));
   }
+
+  const products_list = products?.map((product) => product)
+  const tags = ["*", ...new Set(products_list.map((tag) => tag.tags[0].value))]
+  console.log(isActive)
   return (
     <>
       <div className="filter-btn-container">
-        <button type="button" className={`filter-btn${isActive === 1 ? "-is-active" : ""}`} key={1} onClick={() => {
-          toggleClass(1)
-          isActive === 1? setFilterKey('*') : setFilterKey('*')
-          }
-        }>Show All</button>
-        <button type="button" className={`filter-btn${isActive === 2 ? "-is-active" : ""}`} key={2} onClick={() => {
-          toggleClass(2)
-          isActive === 2? setFilterKey('*') : setFilterKey('earphones')
-          }}>Show earphones</button>
-        <button type="button" className={`filter-btn${isActive === 3 ? "-is-active" : ""}`} key={3} onClick={() => {
-          toggleClass(3)
-          isActive === 3? setFilterKey('*') : setFilterKey('headphones')
-          }}>Show headphones</button>
-        <button type="button"className={`filter-btn${isActive === 4 ? "-is-active" : ""}`} key={4} onClick={() => {
-          toggleClass(4)
-          isActive === 4? setFilterKey('*') : setFilterKey('smartphones')
-          }}>Show smartphones</button>
+        {tags.map((tag, index ) => {
+          console.log(tag, index)
+          return (
+            <button
+              type="button" 
+              className={`filter-btn${isActive === index ? "-is-active" : ""}`} 
+              key={index}
+              onClick={() => {
+                toggleClass(index)
+                isActive === index ? setFilterKey('*') : setFilterKey(tag)
+                }
+              }
+            >
+              {index === 0? "show all" : tag}
+            </button>
+          )
+        })
+        }
       </div>
 
       <div className = "isotope">
