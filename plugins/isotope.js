@@ -1,6 +1,5 @@
 import React from "react"
 import Isotope from "isotope-layout"
-import Filterizr from 'filterizr'
 import Product from "../components/Products"
 import { useStateContext } from "../context/stateContext"
 
