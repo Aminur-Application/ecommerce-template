@@ -13,7 +13,7 @@ export const StateContext = ({children}) => {
   const [qty, setQty] = useState(1);
   const [filterKey, setFilterKey] = useState('*')
   const [isotope, setIsotope] = useState(null)
-  const [isActive, setActive] = useState(1)
+  const [isActive, setActive] = useState(0)
 
   let foundProduct;
   let index;
