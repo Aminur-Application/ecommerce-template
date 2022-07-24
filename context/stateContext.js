@@ -11,6 +11,8 @@ export const StateContext = ({children}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+  const [filterKey, setFilterKey] = useState('*')
+  const [isotope, setIsotope] = useState(null)
 
   let foundProduct;
   let index;
@@ -88,7 +90,11 @@ export const StateContext = ({children}) => {
         decQty,
         onAdd,
         toggleCartItemQuantity,
-        onRemove
+        onRemove,
+        filterKey,
+        setFilterKey,
+        isotope, 
+        setIsotope
       }}
       >
        {children}

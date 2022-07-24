@@ -2,19 +2,16 @@ import React from "react"
 import Isotope from "isotope-layout"
 import Filterizr from 'filterizr'
 import Product from "../components/Products"
+import { useStateContext } from "../context/stateContext"
 
 
 const ClientComponent = ({products}) => {
-  const [isotope, setIsotope] = React.useState(null)
-  const [filterKey, setFilterKey] = React.useState('*')
- 
-
+  const {filterKey, setFilterKey, isotope, setIsotope} = useStateContext();
   React.useEffect(() => {
     setIsotope(
       new Isotope('.isotope', {itemSelector: '.grid-item', layoutMode: 'masonry', masonry: {columnWidth: 1, gutter: 40 }})
     )
   },[])
-
   React.useEffect(() => {
     if (isotope) {
       // sanity check
