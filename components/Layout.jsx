@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 const Layout = ({children}) => {
   return (
-    <div className='layout'>
+    <>
       <Head>
         <title>ecommerce Store</title>
       </Head>
@@ -15,15 +15,15 @@ const Layout = ({children}) => {
         <Navbar />
 
       </header>
-
-      <main className='main-container'>
+      
+      <main>
        {children}
       </main>
 
       <footer>
         <Footer />
       </footer>
-    </div>
+    </>
   )
 }
 
