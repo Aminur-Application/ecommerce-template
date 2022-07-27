@@ -3,8 +3,9 @@ import { Product, FooterBanner, HeroBanner} from '../components';
 import { client } from '../lib/client';
 import Marquee from "react-marquee-slider";
 import dynamic from "next/dynamic"
+import { Button, Stack, Row, Col } from 'react-bootstrap';
 
-const IsotopeComponent = dynamic(() => import("../components/isotope.jsx"), {
+const IsotopeComponent = dynamic(() => import("../components/filterizr.jsx"), {
   // Do not import in server side
   ssr: false,
 })
@@ -13,29 +14,39 @@ const IsotopeComponent = dynamic(() => import("../components/isotope.jsx"), {
 const Home = ({ products, bannerData}) => {
   return (
     <>
-      <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
-      <div className = "products-heading">
-        <h2> Best selling Products </h2>
-        <p> Speakers of many variations</p>
-        <div className='products-container'>
-          <Marquee velocity={25} >
-            {products?.map((product) => 
-              <div style={{marginLeft: "15px"}}>
-                <Product key={product._id} product={product} />
-              </div>
-              )}
-          </Marquee>
+      <Row>
+        <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
+      </Row>
+     
+      <Row>
+        <div className = "products-heading">
+          <h2> Best selling Products </h2>
+          <p> Speakers of many variations</p>
+          <div className='products-container'>
+            <Marquee velocity={25} >
+              {products?.map((product) => 
+                <div style={{marginLeft: "15px"}}>
+                  <Product key={product._id} product={product} />
+                </div>
+                )}
+            </Marquee>
+          </div>
         </div>
-      </div>
-      <div className = "products-heading">
-        <h2>All Products</h2>
-        <p> Speakers of many variations</p>
-        <IsotopeComponent products={products}/>
-        <div className = "isotope ">
-            {products?.map((product) => <Product key={product._id} product={product} />)}
+      </Row>
+      <Row>
+        <div className = "products-heading">
+          <h2>All Products</h2>
+          <p> Speakers of many variations</p>
+          <IsotopeComponent products={products}/>
+          <div className = "isotope">
+              {products?.map((product) => <Product key={product._id} product={product} />)}
+          </div>
         </div>
-      </div>
-      <FooterBanner footerBanner = { bannerData && bannerData[0]} />
+      </Row>
+      <Row>
+        <FooterBanner footerBanner = { bannerData && bannerData[0]} />
+      </Row>
+      
 
     </>
   )
