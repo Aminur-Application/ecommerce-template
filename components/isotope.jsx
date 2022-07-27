@@ -2,13 +2,14 @@ import React from "react"
 import Isotope from "isotope-layout"
 import Product from "../components/Products"
 import { useStateContext } from "../context/stateContext"
+import {ButtonGroup, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
 
 
 const IsotopeComponent = ({products}) => {
   const {filterKey, setFilterKey, isotope, setIsotope, isActive, setActive} = useStateContext();
   React.useEffect(() => {
     setIsotope(
-      new Isotope('.isotope', {itemSelector: '.grid-item', layoutMode: 'masonry', masonry: {columnWidth: 1, gutter: 40 }})
+      new Isotope('.isotope', {itemSelector: '.grid-item', layoutMode: 'masonry', masonry: {gutter: 10 }})
     )
   },[])
 
@@ -31,16 +32,15 @@ const IsotopeComponent = ({products}) => {
   console.log(isActive)
   return (
     <>
-      <div className="row" style={{justifyContent: "space-between"}}>
-        <div className="col">
-          <div className="filter-btn-group">
+      <Row>
+        <ButtonToolbar className="justify-content-between">
+          <ButtonGroup size="sm" >
             {tags.map((tag, index ) => {
               console.log(tag, index)
               return (
                 <button
-                  type="button" 
-                  className={`filter-btn${isActive === index ? "-is-active" : ""}`} 
                   key={index}
+                  className={`filter-btn${isActive === index ? "-is-active" : ""}`} 
                   onClick={() => {
                     toggleClass(index)
                     isActive === index ? setFilterKey('*') : setFilterKey(tag)
@@ -52,15 +52,14 @@ const IsotopeComponent = ({products}) => {
               )
             })
             }
-          </div>
-        </div>
-        <div className="col">
+          </ButtonGroup>
           <div className="box">
             <button class="btn-search"><i class="fas fa-search"></i></button>
               <input type="text" class="input-search" placeholder="Type to Search..." />
           </div>
-        </div>
-      </div>
+        </ButtonToolbar>
+            
+      </Row>
     </>
   )
 }
