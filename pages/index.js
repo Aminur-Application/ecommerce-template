@@ -31,7 +31,7 @@ const Home = ({ products, bannerData}) => {
         <h2>All Products</h2>
         <p> Speakers of many variations</p>
         <IsotopeComponent products={products}/>
-        <div className = "isotope">
+        <div className = "isotope ">
             {products?.map((product) => <Product key={product._id} product={product} />)}
         </div>
       </div>

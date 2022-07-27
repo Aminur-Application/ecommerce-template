@@ -5,9 +5,9 @@ import { urlFor } from '../lib/client';
 const Products = ({product: { image, name, slug, price, tags }}) => {
   const returnTags = tags?.map((tag) => tag.value).join(" ") || []
   return (
-    <div className={`grid-item ${returnTags}` }>
+    <div className={`grid-item ${returnTags}` } style={{marginTop: "20px"}}>
         <Link href={`/product/${slug.current}`}>
-        <div className='product-card'>
+        <div className='product-card' >
           <img
             src={urlFor(image && image[0])}
             width={250}
