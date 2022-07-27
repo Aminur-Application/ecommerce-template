@@ -23,9 +23,9 @@ const Home = ({ products, bannerData}) => {
           <h2> Best selling Products </h2>
           <p> Speakers of many variations</p>
           <div className='products-container'>
-            <Marquee velocity={25} >
+            <Marquee velocity={25}>
               {products?.map((product) => 
-                <div style={{marginLeft: "15px"}}>
+                <div style={{marginLeft: "15px"}} key={product._id}>
                   <Product key={product._id} product={product} />
                 </div>
                 )}
