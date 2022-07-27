@@ -1,14 +1,12 @@
 import React,{useEffect} from 'react'
 import { Product, FooterBanner, HeroBanner} from '../components';
 import { client } from '../lib/client';
-
+import Marquee from "react-marquee-slider";
 import dynamic from "next/dynamic"
 
-const ClientComponent = dynamic(() => import("../plugins/isotope"), {
+const IsotopeComponent = dynamic(() => import("../components/isotope.jsx"), {
   // Do not import in server side
   ssr: false,
-  suspense: false
-  
 })
 
 
@@ -19,8 +17,26 @@ const Home = ({ products, bannerData}) => {
       <div className = "products-heading">
         <h2> Best selling Products </h2>
         <p> Speakers of many variations</p>
+        <div className='products-container'>
+          <Marquee velocity={25} >
+            {products?.map((product) => 
+              <div style={{marginLeft: "15px"}}>
+                <Product key={product._id} product={product} />
+              </div>
+              )}
+          </Marquee>
+        </div>
       </div>
-      <ClientComponent products={products}/>
+      <div className = "products-heading">
+        <h2>All Products</h2>
+        <p> Speakers of many variations</p>
+        <IsotopeComponent products={products}/>
+        <div className = "isotope">
+            {products?.map((product) => <Product key={product._id} product={product} />)}
+        </div>
+      </div>
+      <FooterBanner footerBanner = { bannerData && bannerData[0]} />
+
     </>
   )
 }
