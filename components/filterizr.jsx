@@ -3,6 +3,8 @@ import Product from "../components/Products"
 import { useStateContext } from "../context/stateContext"
 import {ButtonGroup, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
 import Filterizr from "filterizr";
+import {FaSearch} from 'react-icons/fa';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
 const FilterizrComponent = ({products}) => {
@@ -48,12 +50,13 @@ const FilterizrComponent = ({products}) => {
             })
             }
           </ButtonGroup>
-          <div className="box">
-            <button className="btn-search" type="button">  </button>
-              <input type="text" name="filtr-search" className="input-search" 
-              onChange={{} = event => {filterBySearch(event)}} data-filter={"all"} onClick={() => setActive(0)} value={filterKey}
+           <div className="search-box">
+            <span data-filter={"all"} onClick={() => {setActive(0)}}>
+              <button className="btn-search"><i className="fa fa-search" ></i></button>
+              <input type="text" name="filtr-search" className="input-search"
+              onChange={{} = event => {filterBySearch(event)}} value={filterKey}
               placeholder="Type to Search..."  data-search/>
-            
+            </span>
           </div>
         </ButtonToolbar>
             
