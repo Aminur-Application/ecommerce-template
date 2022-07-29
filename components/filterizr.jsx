@@ -21,21 +21,24 @@ const FilterizrComponent = ({products}) => {
   const products_list = products?.map((product) => product)
   const tags = ["all", ...new Set(products_list.map((tag) => tag.tags[0].value))]
 
+  const filterBySearch = (event) => {
+    setFilterKey(event.target.value)
+  }
   return (
     <>
       <Row>
-        <ButtonToolbar className="justify-content-between">
+        <ButtonToolbar style={{placeContent: "space-around"}}>
           <ButtonGroup size="sm" style={{display: "block"}}>
             {tags.map((tag, index ) => {
               return (
                 <button
                   key={index}
-                  className={`filter-btn${isActive === index ? "-is-active" : ""}`}          
+                  className={`filter-btn${isActive === index ? "-is-active" : filterKey? "-is-disabled" : ""}`}          
                   size="sm"
+                  disabled={filterKey? true: false}
                   data-filter={isActive === index ? "all" : tag}
                   onClick={() => {
                     toggleClass(index)
-                    isActive === index ? setFilterKey('*') : setFilterKey(tag)
                     }
                   }
                 >
@@ -46,8 +49,11 @@ const FilterizrComponent = ({products}) => {
             }
           </ButtonGroup>
           <div className="box">
-            <button className="btn-search"><i className="fas fa-search"></i></button>
-              <input type="text" name="filtr-search" className="input-search" placeholder="Type to Search..."  data-search=""/>
+            <button className="btn-search" type="button">  </button>
+              <input type="text" name="filtr-search" className="input-search" 
+              onChange={{} = event => {filterBySearch(event)}} data-filter={"all"} onClick={() => setActive(0)} value={filterKey}
+              placeholder="Type to Search..."  data-search/>
+            
           </div>
         </ButtonToolbar>
             
