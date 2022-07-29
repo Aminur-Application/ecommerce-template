@@ -11,7 +11,7 @@ export const StateContext = ({children}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
-  const [filterKey, setFilterKey] = useState('*')
+  const [filterKey, setFilterKey] = useState('')
   const [isotope, setIsotope] = useState(null)
   const [isActive, setActive] = useState(0)
 
