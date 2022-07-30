@@ -12,7 +12,7 @@ const FilterizrComponent = ({products}) => {
     setIsotope(
       new Filterizr('.isotope', {gridItemsSelector: '.grid-item', gutterPixels: 10})
     )
-  },[])
+  },[setIsotope])
   
   const toggleClass = (index) => {
     setActive((isActive) => (isActive === index ? 0 : index));
