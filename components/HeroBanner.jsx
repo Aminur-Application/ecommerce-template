@@ -34,19 +34,18 @@ const HeroBanner = ({heroBanner}) => {
       </Col>
      </Row>
      <Row>
-      <Col>
+    
         <div>
           <Link href={`/product/${heroBanner.product}`}>
             <button type='button'>{heroBanner.buttonText}</button>
           </Link>
         </div>
-      </Col>
-      <Col>
+      </Row>
+      <Row style={{justifyContent: "right"}}>
         <div className='desc'>
           <h5> Description </h5>
           <p>{heroBanner.desc}</p>
        </div>
-       </Col>
      </Row>
     </div>
   )
