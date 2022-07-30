@@ -54,7 +54,7 @@ const IsotopeComponent = ({products}) => {
           </ButtonGroup>
           <div className="box">
             <button className="btn-search"><i className="fas fa-search"></i></button>
-              <input type="text" class="input-search" placeholder="Type to Search..." />
+              <input type="text" className="input-search" placeholder="Type to Search..." />
           </div>
         </ButtonToolbar>
             
