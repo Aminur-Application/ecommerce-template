@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className='navbar-container'>
       <p className='logo'>
-        <Link href="/">GoNatural</Link>
+        <Link href="/">Ecommerce-template</Link>
       </p>
       <button type="button" className='cart-icon' onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
