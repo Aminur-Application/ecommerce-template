@@ -16,6 +16,7 @@ export const StateContext = ({children}) => {
   const [isActive, setActive] = useState(0)
   const [sortKey, setSortKey] = useState("")
   const [sortOrder, setSortOrder] = useState("asc")
+  const [track, setTrack] = useState(false)
 
   let foundProduct;
   let index;
@@ -102,7 +103,10 @@ export const StateContext = ({children}) => {
         setActive,
         sortKey, 
         setSortKey,
-        sortOrder, setSortOrder
+        sortOrder,
+        setSortOrder,
+        track, 
+        setTrack
       }}
       >
        {children}

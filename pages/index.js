@@ -4,14 +4,16 @@ import { client } from '../lib/client';
 import Marquee from "react-marquee-slider";
 import dynamic from "next/dynamic"
 import { Button, Stack, Row, Col } from 'react-bootstrap';
+import { useStateContext } from '../context/stateContext';
 
 const IsotopeComponent = dynamic(() => import("../components/filterizr.jsx"), {
   // Do not import in server side
   ssr: false,
 })
 
-
 const Home = ({ products, bannerData}) => {
+  const {track, setTrack} = useStateContext();
+  
   return (
     <>
       <Row>
@@ -23,10 +25,10 @@ const Home = ({ products, bannerData}) => {
           <h2> Best selling Products </h2>
           <p> Speakers of many variations</p>
           <div className='products-container'>
-            <Marquee velocity={25}>
+            <Marquee velocity={track? 0: 25}>
               {products?.map((product) => 
                 <div style={{marginLeft: "15px"}} key={product._id}>
-                  <Product key={product._id} product={product} />
+                  <Product key={product._id} product={product} value={product._id} marquee={true}/>
                 </div>
                 )}
             </Marquee>
