@@ -11,7 +11,7 @@ const IsotopeComponent = ({products}) => {
     setIsotope(
       new Isotope('.isotope', {itemSelector: '.grid-item', layoutMode: 'masonry', masonry: {gutter: 10 }})
     )
-  },[])
+  },[setIsotope])
 
   React.useEffect(() => {
     if (isotope) {

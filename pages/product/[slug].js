@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import {client, urlFor} from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar} from 'react-icons/ai';
 import { Product } from '../../components';
+import Marquee from "react-marquee-slider";
 import {useStateContext} from '../../context/stateContext'
 const ProductDetails = ({product, products}) => {
   const { image, name, details, price} = product;
   const [index, setIndex] = useState(0)
-  const {decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
+  const {decQty, incQty, qty, onAdd, setShowCart, track, setTrack} = useStateContext();
 
   const handleBuyNow = () =>{
     onAdd(product, qty);
@@ -75,11 +76,13 @@ const ProductDetails = ({product, products}) => {
       </div>
       <div className='maylike-products-wrapper'>
         <h2>You may also like </h2>
-        <div className='marquee'>
-          <div className='maylike-products-container track'>
-            {products.map((item) => (<Product key={item._id} product={item}/>))}
-          </div>
-        </div>
+        <Marquee velocity={track? 0: 50}>
+          {products?.map((product) => 
+            <div style={{marginLeft: "15px"}} key={product._id}>
+              <Product key={product._id} product={product} value={product._id} marquee={true}/>
+            </div>
+            )}
+        </Marquee>
       </div>
       
     </div>
