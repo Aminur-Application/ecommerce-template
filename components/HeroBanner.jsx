@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Link from 'next/link'
-import { Button, Stack, Row, Col } from 'react-bootstrap';
+import {Row, Col } from 'react-bootstrap';
 import {urlFor} from '../lib/client'
 
 const HeroBanner = ({heroBanner}) => {
@@ -9,15 +9,14 @@ const HeroBanner = ({heroBanner}) => {
     <div className="hero-banner-container">
      <Row>
       <Col sm={3} style={{height: "250px"}}>
-        <p className='beats-solo'>{heroBanner.smallText}</p>
+        <p className='product-name'>{heroBanner.smallText}</p>
         <h3>{heroBanner.midText}</h3>
         <h1>{heroBanner.largeText1}</h1>
       </Col>
       <Col sm={8}>
         <Row>
           <Col sm={10}>
-          <img src={urlFor(heroBanner.image && heroBanner.image[index])} alt='headphones' className='hero-banner-image'/>
-
+            <img src={urlFor(heroBanner.image && heroBanner.image[index])} alt='headphones' className='hero-banner-image'/>
           </Col>
           <Col sm={2}>
             <div className='hero-banner-small-images-container'>
@@ -33,9 +32,7 @@ const HeroBanner = ({heroBanner}) => {
           </Col>
         </Row>
       </Col>
-      
      </Row>
-     
      <Row>
       <Col>
         <div>
