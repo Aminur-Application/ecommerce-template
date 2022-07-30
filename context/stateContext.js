@@ -14,6 +14,7 @@ export const StateContext = ({children}) => {
   const [filterKey, setFilterKey] = useState('')
   const [isotope, setIsotope] = useState(null)
   const [isActive, setActive] = useState(0)
+  const [sortKey, setSortKey] = useState("")
 
   let foundProduct;
   let index;
@@ -97,7 +98,8 @@ export const StateContext = ({children}) => {
         isotope, 
         setIsotope,
         isActive, 
-        setActive
+        setActive,
+        sortKey, setSortKey
       }}
       >
        {children}
