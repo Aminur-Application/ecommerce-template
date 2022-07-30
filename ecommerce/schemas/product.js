@@ -34,7 +34,40 @@ export default {
   {
    name: 'details',
    title: 'Details',
-   type: 'string',
+   type: 'text',
+  },
+  // {
+  //   name: 'rating',
+  //   title: 'Rating',
+  //   type: 'rating',
+  //   description: 'Apply a rating out of 5 stars',
+  //   options: {
+  //     stars: 5
+  //   }
+  // },
+  {
+    name: 'note',
+    title: 'Note',
+    type: 'string',
+  },
+  {
+    name: 'link',
+    title: 'Product Link',
+    type: 'url'
+  },
+  {
+    name: 'tags',
+    title: 'Tags',
+    type: 'tags',
+    options: {
+      predefinedTags:[
+        {label: "Headphones", value: 'headphones'},
+        {label: "Earphones", value: 'earphones'},
+        {label: "Smartphones", value: 'smartphones'},
+        {label: "Smartwatches", value: 'smartwatches'},
+        {label: "Speakers", value: 'speakers'}
+      ]
+    }
   }
 
  ]

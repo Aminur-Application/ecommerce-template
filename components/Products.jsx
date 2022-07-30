@@ -1,24 +1,32 @@
 import React from 'react'
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
+import {Card} from 'react-bootstrap'
 
-const Products = ({product: { image, name, slug, price }}) => {
+const Products = ({product: { image, name, slug, price, tags }}) => {
+  const returnTags = tags?.map((tag) => tag.value).join(" ") || []
   return (
-    <div>
-      <Link href={`/product/${slug.current}`}>
-        <div className='product-card'>
-          <img
-            src={urlFor(image && image[0])}
-            width={250}
-            height={250}
-            className="product-image"
-            />
-            <p className='product-name'>{name}</p>
-            <p className='product-price'>${price}</p>
-        </div>
-      
-      </Link>
-    </div>
+   
+      <Card className={`grid-item ${returnTags} product-card`} 
+            data-category={`${returnTags}`} 
+            style={{marginTop: "25px", border: "none"}}
+            data-price={price}
+            data-name={name}
+            >
+        <Link href={`/product/${slug.current}`}>
+          <div>
+            <Card.Img
+                src={urlFor(image && image[0])}
+                width={250}
+                height={250}
+                className="product-image"
+                
+                />
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>${price}</Card.Text>
+          </div>
+        </Link>
+      </Card> 
   )
 }
 

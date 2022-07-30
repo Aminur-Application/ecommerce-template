@@ -11,6 +11,11 @@ export const StateContext = ({children}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+  const [filterKey, setFilterKey] = useState('')
+  const [isotope, setIsotope] = useState(null)
+  const [isActive, setActive] = useState(0)
+  const [sortKey, setSortKey] = useState("")
+  const [sortOrder, setSortOrder] = useState("asc")
 
   let foundProduct;
   let index;
@@ -32,8 +37,6 @@ export const StateContext = ({children}) => {
     setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity)
     setCartItems(newCartItems);
-
-
   }
 
   const onAdd = (product, quantity) => {
@@ -90,7 +93,16 @@ export const StateContext = ({children}) => {
         decQty,
         onAdd,
         toggleCartItemQuantity,
-        onRemove
+        onRemove,
+        filterKey,
+        setFilterKey,
+        isotope, 
+        setIsotope,
+        isActive, 
+        setActive,
+        sortKey, 
+        setSortKey,
+        sortOrder, setSortOrder
       }}
       >
        {children}

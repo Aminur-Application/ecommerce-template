@@ -97,24 +97,26 @@ width: 100%;
 .products-container{
   display: flex;
   flex-wrap: wrap;
+  height: 350px;
   justify-content: center;
+  text-align:left;
   gap: 15px;
-  margin-top: 20px;
   width: 100%;
 }
+
 .product-card{
  cursor: pointer;
-  transform: scale(1, 1);
-  transition: transform 0.5s ease;
+ transform: scale(1, 1);
+ transition: transform 0.5s ease;
  color: #324d67;
-
 }
+
 .product-card:hover{
   transform: scale(1.1,1.1)
 }
 .product-image{
   border-radius: 15px;
- background-color: #ebebeb;
+  background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
@@ -395,6 +397,37 @@ padding: 30px 65px;
   width: 400px;
   margin: auto;
 }
+.filter-btn-group{
+  width: 100%;
+  display:flex;
+  gap: 5px
+}
+.filter-search{
+  width:100%;
+  display:flex;
+}
+.filter-btn.is-active {
+
+  background-color: #f02d34;
+}
+
+.filter-btn.is-disabled {
+  background-color: #dcdcdc;
+}
+
+.filter-btn, .sort-btn{
+  max-width: 400px;
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #324d67;
+  color: #fff;
+  cursor: pointer;
+    transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
 .btn{
   width: 100%;
   max-width: 400px;
@@ -411,7 +444,71 @@ padding: 30px 65px;
     transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
-.btn:hover{
+
+.input-search{
+  width: 100%;
+  height: 42.5px;
+  border-style: none;
+  padding: 10px 12px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  background-color: #324d67;
+  padding-right: 40px;
+  color:#fff;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.input-search::placeholder{
+  color:rgba(255,255,255,.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  
+}
+
+.input-search:focus{
+  width: 100%;
+  border-radius: 15px;
+  background-color: #f02d34;
+  border-radius: 15px;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.sort-select-order{
+  height: 42.5px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding: 10.5px 12px;
+  outline: none;
+  font-size: 15px;
+  border-style: none;
+  background-color: #324d67;
+  color:white;
+
+}
+
+.sort-select{
+  height: 42.5px;
+  padding: 10.5px 12px;
+  outline: none;
+  font-size: 15px;
+  border-style: none;
+  background-color: #324d67;
+  color:white;
+}
+
+.sort-select.is-active{
+  background-color: #f02d34;
+}
+
+.btn:hover, .filter-btn:hover{
   transform: scale(1.1,1.1);
 }
 .product-detail-container{
@@ -422,7 +519,6 @@ padding: 30px 65px;
  color: #324d67;
 
 }
-
 .product-detail-image{
   border-radius: 15px;
    background-color: #ebebeb;
@@ -760,4 +856,20 @@ margin-top: 160px;
   width: 300px;
   margin: auto;
 }
+
+
+
 }
+@media screen and (max-width:990px) and (min-width:767px){
+  .isotope{
+    left:15%
+  }
+}
+
+
+@media screen and (max-width:503px){
+  .isotope{
+    justify-content: center;
+  }
+}
+/* YouTube icon */
