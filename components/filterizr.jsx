@@ -6,7 +6,7 @@ import Filterizr from "filterizr";
 
 
 const FilterizrComponent = ({products}) => {
-  const {filterKey, setFilterKey, isotope, setIsotope, isActive, setActive, sortKey, setSortKey} = useStateContext();
+  const {filterKey, setFilterKey, isotope, setIsotope, isActive, setActive, sortKey, setSortKey, sortOrder, setSortOrder} = useStateContext();
   
   React.useEffect(() => {
     setIsotope(
@@ -26,8 +26,14 @@ const FilterizrComponent = ({products}) => {
   }
 
   const filterBySort = (event) => {
-    isotope.sort(event.target.value)
-    setSortKey(event.target.value)
+      isotope.sort(event.target.value, sortOrder)
+      setSortKey(event.target.value)
+
+  }
+
+  const filterByOrder = (event) => {
+    isotope.sort(sortKey, event.target.value)
+    setSortOrder(event.target.value)
   }
   return (
     <>
@@ -41,6 +47,7 @@ const FilterizrComponent = ({products}) => {
                   className={`filter-btn ${isActive === index ? "is-active" : filterKey? "is-disabled" : ""}`}          
                   size="sm"
                   disabled={filterKey? true: false}
+                  data-sortorder
                   data-filter={isActive === index ? "all" : tag}
                   onClick={() => {
                     toggleClass(index)
@@ -60,14 +67,22 @@ const FilterizrComponent = ({products}) => {
                 
                 <input type="text" name="filtr-search" className="input-search"
                 onChange={{} = event => {filterBySearch(event)}} data-filter={"all"} onFocus={() => setActive(0)} value={filterKey}
-                placeholder="Type to Search..."  data-search/>
+                placeholder="Type to Search..."  data-search data-sortorder/>
               </div>
 
-              <div className="col-xs-2 col-sm-2">
+              <div className="col-xs-3 ">
                 <select data-sortorder onChange={{} = event => {filterBySort(event)}} className={`sort-select ${sortKey == ""? "": "is-active"}`} >
                   <option value="">No Sort</option>
                   <option value="name">Name</option>
                   <option value="price">Price</option>
+                  
+                </select>
+              </div>
+
+              <div className="col-xs-2">
+                <select data-sortorder onChange={{} = event => {filterByOrder(event)}} className={`sort-select-order`} >
+                  <option value="asc">Asc</option>
+                  <option value="desc">Desc</option>
                 </select>
               </div>
           

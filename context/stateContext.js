@@ -15,6 +15,7 @@ export const StateContext = ({children}) => {
   const [isotope, setIsotope] = useState(null)
   const [isActive, setActive] = useState(0)
   const [sortKey, setSortKey] = useState("")
+  const [sortOrder, setSortOrder] = useState("asc")
 
   let foundProduct;
   let index;
@@ -99,7 +100,9 @@ export const StateContext = ({children}) => {
         setIsotope,
         isActive, 
         setActive,
-        sortKey, setSortKey
+        sortKey, 
+        setSortKey,
+        sortOrder, setSortOrder
       }}
       >
        {children}

@@ -480,7 +480,7 @@ padding: 30px 65px;
   border-bottom-right-radius: 0px;
 }
 
-.sort-select{
+.sort-select-order{
   height: 42.5px;
   border-radius: 15px;
   border-top-left-radius: 0px;
@@ -491,8 +491,17 @@ padding: 30px 65px;
   border-style: none;
   background-color: #324d67;
   color:white;
-  padding-right: 40px;
 
+}
+
+.sort-select{
+  height: 42.5px;
+  padding: 10.5px 12px;
+  outline: none;
+  font-size: 15px;
+  border-style: none;
+  background-color: #324d67;
+  color:white;
 }
 
 .sort-select.is-active{
