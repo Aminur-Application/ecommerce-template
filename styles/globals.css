@@ -216,6 +216,10 @@ text-align: end;
   justify-content: space-between;
 }
 
+.isotope{
+  position: relative !important;
+}
+
 .footer-banner-image-container{
   width: 100%;
   display: flex;
@@ -838,7 +842,7 @@ margin-top: 160px;
 
 
 }
-@media screen and (max-width:990px) and (min-width:767px){
+/* @media screen and (max-width:990px) and (min-width:767px){
   .isotope{
     left:15%
   }
@@ -850,8 +854,13 @@ margin-top: 160px;
     justify-content: center;
   }
   
-}
+} */
 
+@media screen and (max-width:500px){
+  .isotope{
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 575px){
   .hero-banner-small-images-container{
     display: block;
