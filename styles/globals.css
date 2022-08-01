@@ -867,14 +867,32 @@ margin-top: 160px;
   
 } */
 
-@media screen and (max-width:765px){
+@media screen and (max-width:800px) and (min-width: 450px){
   .isotope{
-    justify-content: center;
+    width:100% !important;
   }
   .card {
     width: auto !important;
     height: auto !important;
-    padding: 0px !important ;
+    padding: 5px !important ;
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  .card-img {
+    width:200px !important;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .isotope{
+    justify-content: center;
+  }
+
+  .card {
+    width: auto !important;
+    height: auto !important;
+    padding: 0px !important;
     font-weight: bold;
     font-size: 36px;
   }
