@@ -118,7 +118,7 @@ width: 100%;
   border-radius: 15px;
   background-color: #ebebeb;
   transform: scale(1, 1);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease !important;
 }
 
 .product-name{
@@ -217,7 +217,18 @@ text-align: end;
 }
 
 .isotope{
-  position: relative !important;
+  width: 80% !important;
+  text-align: center !important; /* this is the key */
+  position: relative;
+  margin: 0 auto !important;
+}
+
+.card {
+  width: 240px !important;
+  height: auto !important;
+  padding: 10px !important;
+  font-weight: bold;
+  font-size: 36px;
 }
 
 .footer-banner-image-container{
@@ -856,9 +867,35 @@ margin-top: 160px;
   
 } */
 
-@media screen and (max-width:500px){
+@media screen and (max-width:767px) and (min-width: 505px){
+  .isotope{
+    width:100% !important;
+  }
+  .card {
+    width: 250 !important;
+    height: auto !important;
+    padding: 10px !important ;
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  .card-img {
+    width:230px !important;
+  }
+}
+
+@media screen and (max-width: 504px) {
   .isotope{
     justify-content: center;
+    width:100% !important;
+  }
+
+  .card {
+    width: auto !important;
+    height: auto !important;
+    padding: 0px !important;
+    font-weight: bold;
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 575px){

@@ -10,7 +10,7 @@ const FilterizrComponent = ({products}) => {
   
   React.useEffect(() => {
     setIsotope(
-      new Filterizr('.isotope', {gridItemsSelector: '.grid-item', gutterPixels: 10})
+      new Filterizr('.isotope', {gridItemsSelector: '.grid-item'})
     )
   },[setIsotope])
   
