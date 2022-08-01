@@ -867,26 +867,27 @@ margin-top: 160px;
   
 } */
 
-@media screen and (max-width:800px) and (min-width: 450px){
+@media screen and (max-width:800px) and (min-width: 505px){
   .isotope{
     width:100% !important;
   }
   .card {
-    width: auto !important;
+    width: 250 !important;
     height: auto !important;
-    padding: 5px !important ;
+    padding: 10px !important ;
     font-weight: bold;
     font-size: 36px;
   }
 
   .card-img {
-    width:200px !important;
+    width:230px !important;
   }
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 504px) {
   .isotope{
     justify-content: center;
+    width:100% !important;
   }
 
   .card {
