@@ -867,7 +867,7 @@ margin-top: 160px;
   
 } */
 
-@media screen and (max-width:800px) and (min-width: 505px){
+@media screen and (max-width:767px) and (min-width: 505px){
   .isotope{
     width:100% !important;
   }
