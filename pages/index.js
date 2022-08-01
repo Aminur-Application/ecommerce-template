@@ -12,8 +12,12 @@ const IsotopeComponent = dynamic(() => import("../components/filterizr.jsx"), {
 })
 
 const Home = ({ products, bannerData}) => {
-  const {track, setTrack} = useStateContext();
 
+
+  const {track, setTrack} = useStateContext();
+  useEffect(() => {
+    setTrack(false)
+  },[])
   return (
     <>
       <Row>
