@@ -1,3 +1,5 @@
+import '../i18n/config';
+import { useTranslation } from 'react-i18next';
 import React,{useEffect} from 'react'
 import { Product, FooterBanner, HeroBanner} from '../components';
 import { client } from '../lib/client';
@@ -6,6 +8,8 @@ import dynamic from "next/dynamic"
 import { Button, Stack, Row, Col } from 'react-bootstrap';
 import { useStateContext } from '../context/stateContext';
 
+
+
 const IsotopeComponent = dynamic(() => import("../components/filterizr.jsx"), {
   // Do not import in server side
   ssr: false,
@@ -13,7 +17,7 @@ const IsotopeComponent = dynamic(() => import("../components/filterizr.jsx"), {
 
 const Home = ({ products, bannerData}) => {
 
-
+  const { t } = useTranslation();
   const {track, setTrack} = useStateContext();
   useEffect(() => {
     setTrack(false)

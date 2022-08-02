@@ -1,17 +1,20 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react'
 import Link from 'next/link';
 import {AiOutlineShopping} from 'react-icons/ai';
+
 
 import { Cart } from './';
 
 import { useStateContext } from '../context/stateContext';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const {showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <div className='navbar-container'>
       <p className='logo'>
-        <Link href="/">Ecommerce-template</Link>
+        <Link href="/">{t('Ecommerce-template')}</Link>
       </p>
       <button type="button" className='cart-icon' onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
@@ -23,4 +26,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
